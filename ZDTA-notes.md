@@ -236,7 +236,7 @@ Extended rollout
 Important Notes
 ZPA does not support SSL inspection
 
-ZIA certificate rotates every 7 days (14‑day validity)
+ZIA certificate rotates every 7 days
 
 Must bypass certificate‑pinned apps
 
