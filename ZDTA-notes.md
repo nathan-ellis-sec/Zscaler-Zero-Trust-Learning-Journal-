@@ -3,23 +3,35 @@ These notes summarize my study and hands‑on learning for the Zscaler Digital T
 This document is structured and — it’s meant to serve as a reusable reference for Zero Trust engineering work.
 
 Table of Contents
+1. Architecture Overview
 
-  Architecture Overview
-  ZPA Architecture
-  ZIA Architecture
-  Zero Trust Exchange (ZTX) Principles
-  Traffic Forwarding & Tunneling
-  Identity & Authentication
-  ZDX (Digital Experience Monitoring)
-  Data Protection & DLP
-  Private Application Access (ZPA)
-  Device Posture & Client Connector
-  TLS/SSL Inspection
-  Bandwidth, NAT & Firewall Behavior
-  Domain Intelligence & Threat Detection
-  Monitoring, Diagnostics & UCaaS
-  API & Automation
-  Appendix (Diagrams Placeholder)
+2. ZPA Architecture
+
+3. ZIA Architecture
+
+4. Zero Trust Exchange (ZTX) Principles
+
+5. Traffic Forwarding & Tunneling
+
+6. Identity & Authentication
+
+7. ZDX (Digital Experience Monitoring)
+
+8. Data Protection & DLP
+
+9. Private Application Access (ZPA)
+
+10. Device Posture & Client Connector
+
+11. TLS/SSL Inspection
+
+12. Bandwidth, NAT & Firewall Behavior
+
+13. Domain Intelligence & Threat Detection
+
+14. Monitoring, Diagnostics & UCaaS
+
+15. API & Automation
 
 Architecture Overview
   Zscaler replaces traditional network‑centric security with a cloud‑native Zero Trust Exchange (ZTX) that connects users to applications — not networks.
