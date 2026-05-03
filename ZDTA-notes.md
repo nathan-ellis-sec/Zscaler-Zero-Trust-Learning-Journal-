@@ -104,216 +104,214 @@ Traffic Forwarding & Tunneling
     Local proxy mode
     Enforced PAC mode
 
-Z‑Tunnel Notes
-1.0: DTLS, HTTP only
+## Z-Tunnel Notes
 
-2.0: TLS, broader traffic support
+- **1.0:** DTLS, HTTP only  
+- **2.0:** TLS, broader traffic support  
+- Proxy settings must be removed for packet-filter mode  
 
-Proxy settings must be removed for packet‑filter mode
+---
 
-Identity & Authentication
-Protocols
-SAML – static, XML, best for device policies
+## Identity & Authentication
 
-OIDC – JSON, mobile/web apps
+### Protocols
 
-OAuth 2.0 – API access
+- **SAML** – static, XML, best for device policies  
+- **OIDC** – JSON, mobile/web apps  
+- **OAuth 2.0** – API access  
+- **SCIM** – provisioning (40-minute sync cycle)  
 
-SCIM – provisioning (40‑minute sync cycle)
+### Authentication Flow
 
-Authentication Flow
-User authenticates with IdP
+1. User authenticates with IdP  
+2. IdP issues signed SAML assertion  
+3. Browser POSTs assertion to Zscaler  
+4. Zscaler validates and issues token/cookie  
+5. Traffic processed through ZTX  
 
-IdP issues signed SAML assertion
+---
 
-Browser POSTs assertion to Zscaler
+## ZDX (Digital Experience Monitoring)
 
-Zscaler validates and issues token/cookie
+### Capabilities
 
-Traffic processed through ZTX
+- Endpoint performance  
+- Network path visibility  
+- ISP/gateway issues  
+- ZPA path visibility  
+- Teams/Zoom call quality  
+- Automated RCA (Y-Engine)  
 
-ZDX (Digital Experience Monitoring)
-Capabilities
-Endpoint performance
+### ZDX Score
 
-Network path visibility
+- Range: 1–100  
+- Based on: page fetch time + availability  
+- Probes: every 5 minutes  
 
-ISP/gateway issues
+---
 
-ZPA path visibility
+## Data Protection & DLP
 
-Teams/Zoom call quality
+### DLP Techniques
 
-Automated RCA (Y‑Engine)
+- **EDM** – Exact Data Match  
+- **IDM** – Index Document Matching  
+- **OCR** – Text extraction from images  
 
-ZDX Score
-Range: 1–100
+### DSPM
 
-Based on: page fetch time + availability
+- Discover services  
+- Map and track risk  
+- Remediate risk  
 
-Probes: every 5 minutes
+### SSPM
 
-Data Protection & DLP
-DLP Techniques
-EDM – Exact Data Match
+- Cloud misconfiguration  
+- Compliance mapping  
+- Third-party app discovery  
 
-IDM – Index Document Matching
+---
 
-OCR – Text extraction from images
+## Private Application Access (ZPA)
 
-DSPM
-Discover services
+### Three Pillars
 
-Map & track risk
+1. Reachability (App Connectors)  
+2. Application Details (Segments and Groups)  
+3. Access Policies  
 
-Remediate risk
+### App Connector Notes
 
-SSPM
-Cloud misconfiguration
+- Lightweight VM  
+- Destination sees connector IP, not user IP  
+- UDP apps require ICMP enabled  
 
-Compliance mapping
+### Supported Access Types
 
-Third‑party app discovery
+- RDP  
+- SSH  
+- Browser-based apps  
 
-Private Application Access (ZPA)
-Three Pillars
-Reachability (App Connectors)
+---
 
-Application Details (Segments & Groups)
+## Device Posture & Client Connector
 
-Access Policies
+### ZCC Security Checks
 
-App Connector Notes
-Lightweight VM
+- Certificate trust  
+- Domain join status  
+- Antivirus  
+- Disk encryption  
+- Third-party integrations  
 
-Destination sees connector IP, not user IP
+### Trusted Network Criteria
 
-UDP apps require ICMP enabled
+- DNS server IPs  
+- DNS search domains  
+- FQDN/IP resolution  
+- ANY vs ALL matching  
 
-Supported Access Types
-RDP
+### Posture Check Frequency
 
-SSH
+- Every 2–15 minutes  
 
-Browser‑based apps
+---
 
-Device Posture & Client Connector
-ZCC Security Checks
-Certificate trust
+## TLS/SSL Inspection
 
-Domain join status
+### Deployment Phases
 
-Antivirus
+1. Pre-work  
+2. Root CA enrollment  
+3. Initial rollout  
+4. Measure and report  
+5. Extended rollout  
 
-Disk encryption
+### Important Notes
 
-Third‑party integrations
+- ZPA does not support SSL inspection  
+- ZIA certificate rotates every 7 days  
+- Must bypass certificate-pinned apps  
+- Block QUIC (UDP 443) and Apple Private Relay  
 
-Trusted Network Criteria
-DNS server IPs
+---
 
-DNS search domains
+## Bandwidth, NAT & Firewall Behavior
 
-FQDN/IP resolution
+### Bandwidth Control
 
-ANY vs ALL matching
+- 8 predefined classes  
+- 17 custom classes  
+- Location-based enforcement  
 
-Posture Check Frequency
-Every 2–15 minutes
+### NAT
 
-TLS/SSL Inspection
-Deployment Phases
-Pre‑work
+- Destination + port translation (L3–L4)
 
-Root CA enrollment
+### IPS
 
-Initial rollout
+- Identity, location, and service-based enforcement  
 
-Measure & report
+### Firewall Defaults
 
-Extended rollout
+- Allow HTTP/HTTPS proxy  
+- Keep "one-click" rules at top  
+- Handles UCaaS and M365 optimally  
 
-Important Notes
-ZPA does not support SSL inspection
+---
 
-ZIA certificate rotates every 7 days
+## Domain Intelligence & Threat Detection
 
-Must bypass certificate‑pinned apps
+### Domain Classifications
 
-Block QUIC (UDP 443) and Apple Private Relay
+- **NRD** – Newly Registered Domains  
+- **NOD** – Newly Observed Domains  
 
-Bandwidth, NAT & Firewall Behavior
-Bandwidth Control
-8 predefined classes
+### ATP Risk Factors
 
-17 custom classes
+- TLD reputation  
+- User agent anomalies  
+- Missing headers  
+- Domain entropy  
+- Zero-pixel iFrames  
+- Obfuscated JavaScript  
+- Suspicious URL paths  
 
-Location‑based enforcement
+### ThreatLabz
 
-NAT
-Destination + port translation (L3–L4)
+Zscaler's internal threat research team.
 
-IPS
-Identity, location, and service‑based enforcement
+---
 
-Firewall Defaults
-Allow HTTP/HTTPS proxy
+## Monitoring, Diagnostics & UCaaS
 
-Keep “one‑click” rules at top
+### Monitoring Types
 
-Handles UCaaS and M365 optimally
+- Endpoint  
+- Network  
+- Application  
+- UCaaS  
 
-Domain Intelligence & Threat Detection
-Domain Classifications
-NRD – Newly Registered Domains
+### Diagnostics
 
-NOD – Newly Observed Domains
+- Max duration: 60 minutes  
+- Reverse path probes available via connector  
 
-ATP Risk Factors
-TLD reputation
+### UCaaS Optimization
 
-User agent anomalies
+- Teams/Zoom scoring  
+- TCP window scaling (64 KB → 4 MB)  
 
-Missing headers
+---
 
-Domain entropy
+## API & Automation
 
-Zero‑pixel iFrames
+### API Response Components
 
-Obfuscated JavaScript
+- HTTP status codes  
+- Response headers  
+- Response body  
 
-Suspicious URL paths
+### AI Insights
 
-ThreatLabz
-Zscaler’s internal threat research team.
-
-Monitoring, Diagnostics & UCaaS
-Monitoring Types
-Endpoint
-
-Network
-
-Application
-
-UCaaS
-
-Diagnostics
-Max duration: 60 minutes
-
-Reverse path probes available via connector
-
-UCaaS Optimization
-Teams/Zoom scoring
-
-TCP window scaling (64 KB → 4 MB)
-
-API & Automation
-API Response Components
-HTTP status codes
-
-Response headers
-
-Response body
-
-AI Insights
-Can classify up to 8,000 files
+- Can classify up to 8,000 files  
