@@ -105,155 +105,215 @@ Traffic Forwarding & Tunneling
     Enforced PAC mode
 
 Z‑Tunnel Notes
-  1.0: DTLS, HTTP only
-  2.0: TLS, broader traffic support
-  Proxy settings must be removed for packet‑filter mode
+1.0: DTLS, HTTP only
+
+2.0: TLS, broader traffic support
+
+Proxy settings must be removed for packet‑filter mode
 
 Identity & Authentication
-  Protocols
-    SAML – static, XML, best for device policies
-    OIDC – JSON, mobile/web apps
-    OAuth 2.0 – API access
-    SCIM – provisioning (40‑minute sync cycle)
+Protocols
+SAML – static, XML, best for device policies
+
+OIDC – JSON, mobile/web apps
+
+OAuth 2.0 – API access
+
+SCIM – provisioning (40‑minute sync cycle)
 
 Authentication Flow
-  User authenticates with IdP
-  IdP issues signed SAML assertion
-  Browser POSTs assertion to Zscaler
-  Zscaler validates and issues token/cookie
-  Traffic processed through ZTX
+User authenticates with IdP
+
+IdP issues signed SAML assertion
+
+Browser POSTs assertion to Zscaler
+
+Zscaler validates and issues token/cookie
+
+Traffic processed through ZTX
 
 ZDX (Digital Experience Monitoring)
-  Capabilities
-    Endpoint performance
-    Network path visibility
-    ISP/gateway issues
-    ZPA path visibility
-    Teams/Zoom call quality
-    Automated RCA (Y‑Engine)
+Capabilities
+Endpoint performance
+
+Network path visibility
+
+ISP/gateway issues
+
+ZPA path visibility
+
+Teams/Zoom call quality
+
+Automated RCA (Y‑Engine)
 
 ZDX Score
-  Range: 1–100
-  Based on page fetch time + availability
-  Probes every 5 minutes
+Range: 1–100
+
+Based on: page fetch time + availability
+
+Probes: every 5 minutes
 
 Data Protection & DLP
-  DLP Techniques
-    EDM – Exact Data Match (hashed structured data)
-    IDM – Index Document Matching
-    OCR – Text extraction from images
+DLP Techniques
+EDM – Exact Data Match
+
+IDM – Index Document Matching
+
+OCR – Text extraction from images
 
 DSPM
-  Discover services
-  Map & track risk
-  Remediate risk
+Discover services
+
+Map & track risk
+
+Remediate risk
 
 SSPM
-  Cloud misconfiguration
-  Compliance mapping
-  Third‑party app discovery
+Cloud misconfiguration
+
+Compliance mapping
+
+Third‑party app discovery
 
 Private Application Access (ZPA)
-  Three Pillars
-    Reachability (App Connectors)
-    Application Details (Segments & Groups)
-    Access Policies
+Three Pillars
+Reachability (App Connectors)
+
+Application Details (Segments & Groups)
+
+Access Policies
 
 App Connector Notes
-  Lightweight VM
-  Destination sees connector IP, not user IP
-  UDP apps require ICMP enabled
+Lightweight VM
+
+Destination sees connector IP, not user IP
+
+UDP apps require ICMP enabled
 
 Supported Access Types
-  RDP
-  SSH
-  Browser‑based apps
+RDP
+
+SSH
+
+Browser‑based apps
 
 Device Posture & Client Connector
-  ZCC Security Checks
-    Certificate trust
-    Domain join status
-    Antivirus
-    Disk encryption
-    Third‑party integrations
+ZCC Security Checks
+Certificate trust
 
-  Trusted Network Criteria
-    DNS server IPs
-    DNS search domains
-    FQDN/IP resolution
-    ANY vs ALL matching
+Domain join status
 
-  Posture Check Frequency
-    Every 2–15 minutes
+Antivirus
 
-11. TLS/SSL Inspection
-  Deployment Phases
-    Pre‑work
-    Root CA enrollment
-    Initial rollout
-    Measure & report
-    Extended rollout
+Disk encryption
 
-  Important Notes
-    ZPA does not support SSL inspection
-    ZIA certificate rotates every 7 days (14‑day validity)
-    Must bypass certificate‑pinned apps
-    Block QUIC (UDP 443) and Apple Private Relay
+Third‑party integrations
+
+Trusted Network Criteria
+DNS server IPs
+
+DNS search domains
+
+FQDN/IP resolution
+
+ANY vs ALL matching
+
+Posture Check Frequency
+Every 2–15 minutes
+
+TLS/SSL Inspection
+Deployment Phases
+Pre‑work
+
+Root CA enrollment
+
+Initial rollout
+
+Measure & report
+
+Extended rollout
+
+Important Notes
+ZPA does not support SSL inspection
+
+ZIA certificate rotates every 7 days (14‑day validity)
+
+Must bypass certificate‑pinned apps
+
+Block QUIC (UDP 443) and Apple Private Relay
 
 Bandwidth, NAT & Firewall Behavior
-  Bandwidth Control
-    8 predefined classes
-    17 custom classes
-    Location‑based enforcement
+Bandwidth Control
+8 predefined classes
 
-  NAT
-    Destination + port translation (L3–L4)
+17 custom classes
 
-  IPS
-    Identity, location, and service‑based enforcement
+Location‑based enforcement
 
-  Firewall Defaults
-    Allow HTTP/HTTPS proxy
-    Keep “one‑click” rules at top
-    Handles UCaaS and M365 optimally
+NAT
+Destination + port translation (L3–L4)
+
+IPS
+Identity, location, and service‑based enforcement
+
+Firewall Defaults
+Allow HTTP/HTTPS proxy
+
+Keep “one‑click” rules at top
+
+Handles UCaaS and M365 optimally
 
 Domain Intelligence & Threat Detection
-  Domain Classifications
-    NRD (Newly Registered Domains)
-    NOD (Newly Observed Domains)
+Domain Classifications
+NRD – Newly Registered Domains
 
-  ATP Risk Factors
-    TLD reputation
-    User agent anomalies
-    Missing headers
-    Domain entropy
-    Zero‑pixel iFrames
-    Obfuscated JavaScript
-    Suspicious URL paths
+NOD – Newly Observed Domains
+
+ATP Risk Factors
+TLD reputation
+
+User agent anomalies
+
+Missing headers
+
+Domain entropy
+
+Zero‑pixel iFrames
+
+Obfuscated JavaScript
+
+Suspicious URL paths
 
 ThreatLabz
-  Zscaler’s internal threat research team.
+Zscaler’s internal threat research team.
 
 Monitoring, Diagnostics & UCaaS
-  Monitoring Types
-    Endpoint
-    Network
-    Application
-    UCaaS
+Monitoring Types
+Endpoint
 
-  Diagnostics
-    Max duration: 60 minutes
-    Reverse path probes available via connector
+Network
 
-  UCaaS Optimization
-    Teams/Zoom scoring
-    TCP window scaling (64 KB → 4 MB)
+Application
+
+UCaaS
+
+Diagnostics
+Max duration: 60 minutes
+
+Reverse path probes available via connector
+
+UCaaS Optimization
+Teams/Zoom scoring
+
+TCP window scaling (64 KB → 4 MB)
 
 API & Automation
-  API Response Components
-    HTTP status codes
-    Response headers
-    Response body
+API Response Components
+HTTP status codes
+
+Response headers
+
+Response body
 
 AI Insights
-  Can classify up to 8,000 files
+Can classify up to 8,000 files
