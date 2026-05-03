@@ -45,37 +45,41 @@ Architecture Overview
     App Connectors – Broker access to private apps
     Public Service Edges – Policy enforcement & inspection
 
-ZPA Architecture
-   
-  User Device
-     ↓
-  ZCC or Clientless Access
-     ↓
-  Cloud Broker (Central Authority, Public Service Edge)
-     ↓
-  App Connector (Tunnel Broker)
-     ↓
-  Server Group
-     ↓
-  Application Segment
-     ↓
-  Private Application
-  
+# ZPA Architecture
+
+```
+User Device
+   ↓
+ZCC or Clientless Access
+   ↓
+Cloud Broker (Central Authority, Public Service Edge)
+   ↓
+App Connector (Tunnel Broker)
+   ↓
+Server Group
+   ↓
+Application Segment
+   ↓
+Private Application
+```
+
   ZPA eliminates VPNs, inbound DMZ, and lateral movement by brokering user‑to‑app connections through identity and context.
 
-ZIA Architecture
-   
-  User Device
-     ↓
-  Traffic Forwarding (ZCC, PAC, GRE, IPSec)
-     ↓
-  Cloud Forward Proxy
-     ↓
-  Security Stack (FW, IPS, DLP, CASB, SSL Inspection)
-     ↓
-  [Optional] Browser Isolation
-     ↓
-  Internet Destination
+# ZIA Architecture
+
+```
+User Device
+   ↓
+Traffic Forwarding (ZCC, PAC, GRE, IPSec)
+   ↓
+Cloud Forward Proxy
+   ↓
+Security Stack (FW, IPS, DLP, CASB, SSL Inspection)
+   ↓
+[Optional] Browser Isolation
+   ↓
+Internet Destination
+```
 
 ZIA replaces outbound DMZ, SWG, and MPLS with a cloud‑native proxy architecture.
 
